@@ -1,5 +1,6 @@
 <?php
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,3 +13,8 @@
 */
 
 Route::get('/', 'inicioController@index');
+
+Route::group(['prefix' => 'admin', 'namespace'=>'admin'], function () {
+    Route::get('permiso', 'permisoController@index')->name('permiso');
+    Route::get('permiso/crear', 'permisoController@crear')->name('crear_permiso');
+});
