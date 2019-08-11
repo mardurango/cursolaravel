@@ -1,10 +1,14 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\admin;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Models\admin\menu;
+use App\Http\Requests\validacionmenu;
+use Illuminate\Support\Facades\Redirect;
 
-class permisoController extends Controller
+class menuController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +17,7 @@ class permisoController extends Controller
      */
     public function index()
     {
-        return view('permiso');
+        //
     }
 
     /**
@@ -21,9 +25,9 @@ class permisoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function crear()
     {
-        //
+        return view('admin.menu.crear');
     }
 
     /**
@@ -32,9 +36,11 @@ class permisoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function guardar(validacionmenu $request)
     {
-        //
+        menu::create($request->all());
+        return redirect('admin/menu/crear')->with('mensaje','Menu creado con exito');
+        
     }
 
     /**
@@ -43,7 +49,7 @@ class permisoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function mostrar($id)
     {
         //
     }
@@ -54,7 +60,7 @@ class permisoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function editar($id)
     {
         //
     }
@@ -66,7 +72,7 @@ class permisoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function actualizar(Request $request, $id)
     {
         //
     }
@@ -77,7 +83,7 @@ class permisoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function eliminar($id)
     {
         //
     }
