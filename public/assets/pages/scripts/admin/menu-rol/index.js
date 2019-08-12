@@ -18,7 +18,7 @@ function ajaxRequest (url, data) {
         type: 'POST',
         data: data,
         success: function (respuesta) {
-            biblioteca.notificaciones(respuesta.respuesta, 'biblioteca', 'success');
+            biblioteca.notificaciones( respuesta.respuesta, 'biblioteca', 'success');
         }
     });
 }
