@@ -3,9 +3,9 @@ $(document).ready(function () {
         event.preventDefault();
         const form = $(this);
         swal({
-            title: '¿ Está seguro que desea eliminar el registro ?',
+            title: "¿ Está seguro que desea eliminar el registro ?",
             text: "Esta acción no se puede deshacer!",
-            icon: 'warning',
+            icon: "warning",
             buttons: {
                 cancel: "Cancelar",
                 confirm: "Aceptar"
@@ -25,9 +25,9 @@ $(document).ready(function () {
             success: function (respuesta) {
                 if (respuesta.mensaje == "ok") {
                     form.parents('tr').remove();
-                    Biblioteca.notificaciones('El registro fue eliminado correctamente', 'Biblioteca', 'success');
+                    biblioteca.notificaciones('El registro fue eliminado correctamente', 'biblioteca', 'success');
                 } else {
-                    Biblioteca.notificaciones('El registro no pudo ser eliminado, hay recursos usandolo', 'Biblioteca', 'error');
+                    biblioteca.notificaciones('El registro no pudo ser eliminado, hay recursos usandolo', 'biblioteca', 'error');
                 }
             },
             error: function () {
