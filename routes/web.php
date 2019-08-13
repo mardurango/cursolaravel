@@ -12,9 +12,11 @@
 |
 */
 
-Route::get('/', 'inicioController@index');
-
-Route::group(['prefix' => 'admin', 'namespace'=>'admin'], function () {
+Route::get('/', 'inicioController@index')->name('inicio');
+Route::get('seguridad/login', 'seguridad\loginController@index')->name('login');
+Route::post('seguridad/login', 'seguridad\loginController@index')->name('login');
+Route::group(['prefix' => 'admin', 'namespace'=>'admin', 'middleware'=> 'auth'], function () {
+    Route::get('', 'adminController@index')->name('admin');
     Route::get('permiso', 'permisoController@index')->name('permiso');
     Route::get('permiso/crear', 'permisoController@crear')->name('crear_permiso');
     /*rutas del menu*/

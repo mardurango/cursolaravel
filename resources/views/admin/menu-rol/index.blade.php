@@ -24,7 +24,7 @@ Menú-Rol
                         <tr>
                           <th>Menu</th>
                             @foreach ($rols as $id => $nombre)
-                               <th>{{$nombre}}</th>
+                               <th class="text-center">{{$nombre}}</th>
                             @endforeach
                         </tr>
                     </thead>
